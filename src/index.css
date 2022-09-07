@@ -48,3 +48,9 @@
 @import url(./blocks/form/__item/_type/_error/form__item_type_error.css);
 @import url(./blocks/form/__error/form__error.css);
 @import url(./blocks/form/__error/_on/form__error_on.css);
+
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__btn/auth__btn.css);
+@import url(./blocks/auth/__form/auth__form.css);
+@import url(./blocks/auth/__input/auth__input.css);
+@import url(./blocks/auth/__title/auth__title.css);

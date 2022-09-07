@@ -8,7 +8,9 @@ import EditProfilePopup from './EditProfilePopup';
 import Footer from './Footer';
 import Header from './Header';
 import ImagePopup from './ImagePopup';
+import Login from './Login';
 import Main from './Main';
+import Register from './Register';
 
 function App() {
 
@@ -116,10 +118,12 @@ function App() {
         <Header />
 
         <Switch>
-          <Route path="/sign-in">
+          <Route path="/sign-up">
+            <Register />
           </Route>
 
-          <Route path="/sign-up">
+          <Route path="/sign-in">
+            <Login />
           </Route>
 
           <ProtectedRoute
