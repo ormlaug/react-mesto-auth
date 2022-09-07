@@ -10,6 +10,7 @@ import Header from './Header';
 import ImagePopup from './ImagePopup';
 import Login from './Login';
 import Main from './Main';
+import ProtectedRoute from './ProtectedRoute';
 import Register from './Register';
 
 function App() {
