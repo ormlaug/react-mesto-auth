@@ -1,5 +1,6 @@
 import CurrentUserContext from 'contexts/CurrentUserContext';
 import React, { useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import api from 'utils/api';
 import AddPlacePopup from './AddPlacePopup';
 import EditAvatarPopup from './EditAvatarPopup';
@@ -114,15 +115,25 @@ function App() {
       <div className="page__container">
         <Header />
 
-        <Main
-          onEditAvatar={handleEditAvatarClick}
-          onEditProfile={handleEditProfileClick}
-          onAddPlace={handleAddPlaceClick}
-          onCardClick={handleCardClick}
-          cards={cards}
-          onCardLike={handleCardLike}
-          onCardDelete={handleCardDelete}
-        />
+        <Switch>
+          <Route path="/sign-in">
+          </Route>
+
+          <Route path="/sign-up">
+          </Route>
+
+          <ProtectedRoute
+            path="/"
+            component={Main}
+            onEditAvatar={handleEditAvatarClick}
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+            onCardClick={handleCardClick}
+            cards={cards}
+            onCardLike={handleCardLike}
+            onCardDelete={handleCardDelete}
+          />
+        </Switch>
 
         <Footer />
 
