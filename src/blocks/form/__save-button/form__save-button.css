@@ -1,0 +1,30 @@
+.form__save-button {
+  height: 50px;
+  border: 0;
+  margin: 15px 0 37px 0;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 2px;
+  
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  transition: opacity .5s ease-in;
+}
+
+.form__save-button:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 525px) {
+  .form__save-button {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 15px 0 25px 0;
+    height: 46px;
+  }
+}
