@@ -1,4 +1,6 @@
 import React from "react";
+import successStatus from "../images/success";
+import failStatus from "../images/fail";
 
 function InfoTooltip(props) {
 
@@ -14,7 +16,7 @@ function InfoTooltip(props) {
       <div className="popup__container popup__container_reg-result">
         <button type="button" className="popup__close" aria-label="close" onClick={props.onClose}></button>
         <img className="popup__reg-image"
-          src={}
+          src={props.loggedIn ? `${successStatus}` : `${failStatus}` }
           alt="Статус регистрации"
         />
         <p className="popup__subtitle"></p>

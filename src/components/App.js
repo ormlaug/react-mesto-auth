@@ -8,6 +8,7 @@ import EditProfilePopup from './EditProfilePopup';
 import Footer from './Footer';
 import Header from './Header';
 import ImagePopup from './ImagePopup';
+import InfoTooltip from './InfoTooltip';
 import Login from './Login';
 import Main from './Main';
 import ProtectedRoute from './ProtectedRoute';
@@ -21,6 +22,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [cards, setCards] = useState([]);
+  const [userEmail, setUserEmail] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
   
 
   const handleCardClick = (card) => {
@@ -116,7 +119,9 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page__container">
-        <Header />
+        <Header
+          email={userEmail}
+        />
 
         <Switch>
           <Route path="/sign-up">
@@ -164,6 +169,11 @@ function App() {
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}>
         </EditAvatarPopup>
+
+        <InfoTooltip>
+          loggedIn={loggedIn}
+          onClose={closeAllPopups}
+        </InfoTooltip>
 
       </div>
     </CurrentUserContext.Provider>

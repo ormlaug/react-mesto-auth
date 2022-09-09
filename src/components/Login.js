@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Login() {
+
+  const history = useHistory();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,6 +15,8 @@ function Login() {
   function handleNewPassword(evt) {
     setPassword(evt.target.value)
   }
+
+  
 
   return(
     <div className="auth">
