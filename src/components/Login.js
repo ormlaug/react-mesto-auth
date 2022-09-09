@@ -16,7 +16,7 @@ function Login() {
     setPassword(evt.target.value)
   }
 
-  
+
 
   return(
     <div className="auth">
@@ -26,11 +26,13 @@ function Login() {
         className="auth__input"
         placeholder="Email"
         onChange={handleNewEmail}
+        value={email || ""}
         />
         <input
         className="auth__input"
         placeholder="Пароль"
         onChange={handleNewPassword}
+        value={password || ""}
         />
         <button type="submit" className="auth__btn">Войти</button>
       </form>
