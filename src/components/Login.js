@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import auth from 'utils/auth';
 
-function Login() {
+function Login(props) {
 
   const history = useHistory();
 
@@ -16,12 +17,27 @@ function Login() {
     setPassword(evt.target.value)
   }
 
-
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    if (!email || !password) {
+      return
+    }
+    auth
+      .signIn(password, email)
+      .then((jwt) => {
+        if (jwt) {
+          setEmail('');
+          setPassword('');
+          props.onLoggedIn();
+          history.push('/')
+        }
+      })
+  }
 
   return(
     <div className="auth">
       <h2 className="auth__title">Вход</h2>
-      <form className="auth__form">
+      <form className="auth__form" onSubmit={handleSubmit}>
         <input
         className="auth__input"
         placeholder="Email"

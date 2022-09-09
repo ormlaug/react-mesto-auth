@@ -45,4 +45,6 @@ class Auth {
 
 }
 
-export default Auth;
+const auth = new Auth();
+
+export default auth;

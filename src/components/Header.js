@@ -13,7 +13,7 @@ function Header(props) {
         alt="Логотип"
         className="header__logo"
       />
-      <nav className="navbar">
+      <div className="navbar">
         {
         location.pathname === '/sign-up' &&
         <Link className="navbar__link" to="/sign-in">Войти</Link>
@@ -27,7 +27,7 @@ function Header(props) {
         location.pathname === '/' &&
         <button className="navbar__link">Выйти</button>
         }
-      </nav>
+      </div>
     </header>
   )
 }

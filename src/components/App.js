@@ -1,6 +1,6 @@
 import CurrentUserContext from 'contexts/CurrentUserContext';
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import api from 'utils/api';
 import AddPlacePopup from './AddPlacePopup';
 import EditAvatarPopup from './EditAvatarPopup';
@@ -47,6 +47,10 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
+  }
+
+  function handleSignIn() {
+    setLoggedIn(true)
   }
 
   function setNewUserInfo(data) {
@@ -124,17 +128,24 @@ function App() {
         />
 
         <Switch>
+          <Route exact path="">
+            { loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" /> }
+          </Route>
+
           <Route path="/sign-up">
             <Register />
           </Route>
 
           <Route path="/sign-in">
-            <Login />
+            <Login
+              onLoggedIn={handleSignIn}
+            />
           </Route>
 
           <ProtectedRoute
             path="/"
             component={Main}
+            loggedIn={loggedIn}
             onEditAvatar={handleEditAvatarClick}
             onEditProfile={handleEditProfileClick}
             onAddPlace={handleAddPlaceClick}
