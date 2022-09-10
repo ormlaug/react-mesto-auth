@@ -7,8 +7,8 @@ function InfoTooltip(props) {
   const className = `
     popup
     popup_type_reg-sesult
-    ${props.isSuccess ? 'popup_success' : 'popup_fail'}
-    ${props.isOpen ? 'popup_active' : ''}
+    ${ props.isSuccess ? 'popup_success' : 'popup_fail' }
+    ${ props.isOpen ? 'popup_active' : '' }
     `;
 
   return (
@@ -19,7 +19,9 @@ function InfoTooltip(props) {
           src={ props.isSuccess ? `${successStatus}` : `${failStatus}` }
           alt="Статус регистрации"
         />
-        <p className="popup__subtitle popup__subtitle_reg-result"></p>
+        <p className="popup__subtitle popup__subtitle_reg-result">
+          { props.isSuccess ? "Вы успешно зарегистрировались!" : "Что-то пошло не так! Попробуйте ещё раз." }
+        </p>
       </div>
     </div>
   )
