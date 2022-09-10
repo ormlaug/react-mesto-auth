@@ -21,6 +21,7 @@ function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
+  const [isRegistered, setRegistered] = useState(false);
 
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
@@ -214,7 +215,7 @@ function App() {
         </EditAvatarPopup>
 
         <InfoTooltip
-          loggedIn={loggedIn}
+          isSuccess={isRegistered}
           isOpen={isInfoPopupOpen}
           onClose={closeAllPopups}>
         </InfoTooltip>

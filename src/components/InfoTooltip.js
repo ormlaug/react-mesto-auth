@@ -6,8 +6,8 @@ function InfoTooltip(props) {
 
   const className = `
     popup
-    popup_type_picture
-    ${props.card ? 'popup_success' : 'popup_fail'}
+    popup_type_reg-sesult
+    ${props.isSuccess ? 'popup_success' : 'popup_fail'}
     ${props.isOpen ? 'popup_active' : ''}
     `;
 
@@ -16,7 +16,7 @@ function InfoTooltip(props) {
       <div className="popup__container popup__container_reg-result">
         <button type="button" className="popup__close" aria-label="close" onClick={props.onClose}></button>
         <img className="popup__reg-image"
-          src={ props.loggedIn ? `${successStatus}` : `${failStatus}` }
+          src={ props.isSuccess ? `${successStatus}` : `${failStatus}` }
           alt="Статус регистрации"
         />
         <p className="popup__subtitle popup__subtitle_reg-result"></p>

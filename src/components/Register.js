@@ -15,7 +15,7 @@ function Register() {
     setPassword(evt.target.value)
   }
 
-  function handleSubmit(evt) {
+  function handleRegister(evt) {
     evt.preventDefault();
     setEmail('');
     setPassword('');
@@ -29,7 +29,7 @@ function Register() {
   return(
     <div className="auth">
       <h2 className="auth__title">Регистрация</h2>
-      <form className="auth__form" onSubmit={handleSubmit}>
+      <form className="auth__form" onSubmit={handleRegister}>
         <input
         className="auth__input"
         placeholder="Email"
