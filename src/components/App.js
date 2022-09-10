@@ -66,7 +66,7 @@ function App() {
         .then((res) => {
           if (res) {
             handleSignIn()
-            setUserEmail(res.userEmail)
+            setUserEmail(res.data.userEmail)
             history.push('/')
           }
         })

@@ -20,7 +20,7 @@ function Register() {
     setEmail('');
     setPassword('');
     auth
-      .signIn(password, email)
+      .signUp(password, email)
       .then(() => {
 
       })

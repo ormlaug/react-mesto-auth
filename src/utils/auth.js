@@ -29,7 +29,13 @@ class Auth {
         email,
       })
     })
-    .then(this._returnResOK);
+    .then(this._returnResOK)
+    .then((data) => {
+      if (data.token) {
+        localStorage.setItem('jwt', data.token);
+        return localStorage.jwt;
+      }
+    })
   }
 
   checkTokenValidity(token) {
