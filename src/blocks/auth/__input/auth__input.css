@@ -1,7 +1,9 @@
 .auth__input {
   margin: 0 auto;
   width: 358px;
-
+  margin-bottom: 30px;
+  margin-top: 0px;
+  padding-bottom: 7px;
   border: none;
   border-bottom: 2px solid rgba(204, 204, 204, 1);
   color: rgba(204, 204, 204, 1);
