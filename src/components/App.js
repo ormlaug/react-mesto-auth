@@ -162,10 +162,6 @@ function App() {
         />
 
         <Switch>
-          <Route exact path="/">
-            { loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" /> }
-          </Route>
-
           <Route path="/sign-up">
             <Register
               onRegistration={handleInfoPopup}
