@@ -1,7 +1,8 @@
 import CurrentUserContext from 'contexts/CurrentUserContext';
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import api from 'utils/api';
+import auth from 'utils/auth';
 import AddPlacePopup from './AddPlacePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
@@ -24,7 +25,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [userEmail, setUserEmail] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
-  
+  const history = useHistory();
 
   const handleCardClick = (card) => {
     setSelectedCard(card)
@@ -52,6 +53,29 @@ function App() {
   function handleSignIn() {
     setLoggedIn(true)
   }
+
+  function handleSignOut() {
+    localStorage.removeItem('jwt');
+    history.push('/sign-in');
+  }
+
+  function handleTokenCheck() {
+    const jwt = localStorage.getItem('jwt');
+    if (localStorage.getItem('jwt')) {
+      auth.checkTokenValidity(jwt)
+        .then((res) => {
+          if (res) {
+            handleSignIn()
+            setUserEmail(res.userEmail)
+            history.push('/')
+          }
+        })
+    }
+  }
+
+  useEffect(() => {
+    handleTokenCheck();
+  }, []);
 
   function setNewUserInfo(data) {
     return { name: data.name, about: data.about, avatar: data.avatar }
@@ -125,6 +149,7 @@ function App() {
       <div className="page__container">
         <Header
           email={userEmail}
+          signOut={handleSignOut}
         />
 
         <Switch>

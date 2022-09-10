@@ -25,7 +25,7 @@ function Header(props) {
         <p className="navbar__link">{props.email}</p>
         } {
         location.pathname === '/' &&
-        <button className="navbar__link">Выйти</button>
+        <button className="navbar__link" onClick={props.signOut}>Выйти</button>
         }
       </div>
     </header>
