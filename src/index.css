@@ -57,6 +57,7 @@
 @import url(./blocks/auth/__form/auth__form.css);
 @import url(./blocks/auth/__input/auth__input.css);
 @import url(./blocks/auth/__title/auth__title.css);
+@import url(./blocks/auth/__navlink/auth__navlink.css);
 
 @import url(./blocks/navbar/navbar.css);
 @import url(./blocks/navbar/__link/navbar__link.css);

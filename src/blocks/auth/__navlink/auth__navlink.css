@@ -1,0 +1,16 @@
+.auth__navlink {
+  text-decoration: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+  transition: opacity .5s ease-in;
+}
+
+.auth__navlink:hover {
+  opacity: .6;
+}
