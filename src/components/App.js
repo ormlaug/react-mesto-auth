@@ -215,7 +215,7 @@ function App() {
 
         <InfoTooltip
           loggedIn={loggedIn}
-          isOpen={handleInfoPopup}
+          isOpen={isInfoPopupOpen}
           onClose={closeAllPopups}>
         </InfoTooltip>
 
