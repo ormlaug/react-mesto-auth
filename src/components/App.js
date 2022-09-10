@@ -20,6 +20,8 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
+
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   const [cards, setCards] = useState([]);
@@ -42,12 +44,17 @@ function App() {
   const handleAddPlaceClick = () => {
     setIsAddPlacePopupOpen(true)
   }
-  
+
+  function handleInfoPopup() {
+    setIsInfoPopupOpen(true);
+  }
+
   const closeAllPopups = () => {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard(null);
+    setIsInfoPopupOpen(false);
   }
 
   function handleSignIn() {
@@ -206,9 +213,10 @@ function App() {
           onUpdateAvatar={handleUpdateAvatar}>
         </EditAvatarPopup>
 
-        <InfoTooltip>
+        <InfoTooltip
           loggedIn={loggedIn}
-          onClose={closeAllPopups}
+          isOpen={handleInfoPopup}
+          onClose={closeAllPopups}>
         </InfoTooltip>
 
       </div>

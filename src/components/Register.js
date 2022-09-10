@@ -22,7 +22,7 @@ function Register() {
     auth
       .signUp(password, email)
       .then(() => {
-
+        
       })
   }
 
