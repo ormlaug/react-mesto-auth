@@ -24,8 +24,10 @@
 
 @media screen and (max-width: 424px) {
   .auth__btn {
-    width: 300px;
+    width: 260px;
     margin: auto;
-    margin-top: 187px;
+    margin-top: 173px;
+    font-size: 16px;
+    line-height: 19px;
   }
 }

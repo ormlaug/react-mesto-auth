@@ -26,5 +26,7 @@
   .navbar__link {
     padding-top: 27px;
     max-width: 104px;
+    font-size: 14px;
+    line-height: 17px;
   }
 }

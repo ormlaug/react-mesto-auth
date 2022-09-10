@@ -12,3 +12,11 @@
   overflow: initial;
   position: initial;
 }
+
+@media screen and (max-width: 531px) {
+  .popup__subtitle_reg-result {
+    max-width: 244px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
