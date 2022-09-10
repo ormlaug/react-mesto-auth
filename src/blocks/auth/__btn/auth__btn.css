@@ -21,3 +21,11 @@
 .auth__btn:hover {
   opacity: .6;
 }
+
+@media screen and (max-width: 424px) {
+  .auth__btn {
+    width: 300px;
+    margin: auto;
+    margin-top: 187px;
+  }
+}
