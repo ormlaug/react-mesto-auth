@@ -46,7 +46,8 @@ function App() {
     setIsAddPlacePopupOpen(true)
   }
 
-  function handleInfoPopup() {
+  function handleInfoPopup(isRegistrationSuccess) {
+    setRegistered(isRegistrationSuccess);
     setIsInfoPopupOpen(true);
   }
 
@@ -166,7 +167,9 @@ function App() {
           </Route>
 
           <Route path="/sign-up">
-            <Register />
+            <Register
+              onRegistration={handleInfoPopup}
+            />
           </Route>
 
           <Route path="/sign-in">

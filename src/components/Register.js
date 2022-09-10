@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import auth from 'utils/auth';
 
-function Register() {
+function Register(props) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,7 +22,7 @@ function Register() {
     auth
       .signUp(password, email)
       .then(() => {
-        
+        props.onRegistration
       })
   }
 
