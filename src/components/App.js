@@ -153,7 +153,7 @@ function App() {
         />
 
         <Switch>
-          <Route exact path="">
+          <Route exact path="/">
             { loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" /> }
           </Route>
 
