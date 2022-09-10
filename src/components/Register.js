@@ -21,9 +21,8 @@ function Register(props) {
     setPassword('');
     auth
       .signUp(password, email)
-      .then(() => {
-        props.onRegistration
-      })
+      .then(() => { props.onRegistration(true) })
+      .catch(() => { props.onRegistration(false) })
   }
 
   return(
