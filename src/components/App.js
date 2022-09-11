@@ -207,7 +207,7 @@ function App() {
 
           <Route path="/sign-in">
             <Login
-              handleLogin={handleLogin}
+              onLogin={handleLogin}
               handleNewEmail={handleNewEmail}
               handleNewPassword={handleNewPassword}
               email={email}

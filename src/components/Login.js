@@ -5,7 +5,7 @@ function Login(props) {
   return(
     <div className="auth">
       <h2 className="auth__title">Вход</h2>
-      <form className="auth__form" onSubmit={props.handleLogin}>
+      <form className="auth__form" onSubmit={props.onLogin}>
         <input
         className="auth__input"
         placeholder="Email"
