@@ -30,6 +30,33 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const history = useHistory();
 
+  //Register
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  function handleNewEmail(evt) {
+    setEmail(evt.target.value)
+  }
+
+  function handleNewPassword(evt) {
+    setPassword(evt.target.value)
+  }
+
+  function handleInfoPopup(isRegistrationSuccess) {
+    setRegistered(isRegistrationSuccess);
+    setIsInfoPopupOpen(true);
+  }
+
+  function handleRegister(evt) {
+    evt.preventDefault();
+    setEmail('');
+    setPassword('');
+    auth
+      .signUp(password, email)
+      .then(() => { handleInfoPopup(true) })
+      .catch(() => { handleInfoPopup(false) })
+  }
+
   const handleCardClick = (card) => {
     setSelectedCard(card)
   }
@@ -44,11 +71,6 @@ function App() {
 
   const handleAddPlaceClick = () => {
     setIsAddPlacePopupOpen(true)
-  }
-
-  function handleInfoPopup(isRegistrationSuccess) {
-    setRegistered(isRegistrationSuccess);
-    setIsInfoPopupOpen(true);
   }
 
   const closeAllPopups = () => {
@@ -155,7 +177,11 @@ function App() {
         <Switch>
           <Route path="/sign-up">
             <Register
-              onRegistration={handleInfoPopup}
+              onRegistration={handleRegister}
+              email={email}
+              password={password}
+              handleNewEmail={handleNewEmail}
+              handleNewPassword={handleNewPassword}
             />
           </Route>
 
