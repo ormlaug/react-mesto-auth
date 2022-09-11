@@ -79,6 +79,7 @@ function App() {
             history.push('/')
           }
         })
+        .catch(err => {console.log(err)});
     }
   }
 
@@ -96,9 +97,7 @@ function App() {
         setCurrentUser(setNewUserInfo(data));
         closeAllPopups()
       })
-      .catch(err => {
-        console.log(err);
-    });
+      .catch(err => {console.log(err)});
   }
 
   function handleUpdateAvatar(link) {
@@ -107,9 +106,7 @@ function App() {
         setCurrentUser(setNewUserInfo(data));
         closeAllPopups()
       })
-      .catch(err => {
-        console.log(err);
-    });
+      .catch(err => {console.log(err)});
   }
 
   function handleCardLike(data) {
@@ -118,9 +115,7 @@ function App() {
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === data._id ? newCard : c));
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {console.log(err)});
   }
 
   function handleCardDelete(data) {
@@ -128,9 +123,7 @@ function App() {
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== data._id ));
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {console.log(err)});
     }
 
   function handleAddPlaceSubmit(item) {
@@ -139,9 +132,7 @@ function App() {
         setCards([item, ...cards]);
         closeAllPopups()
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {console.log(err)});
   }
 
   useEffect(() => {
