@@ -28,12 +28,12 @@ function App() {
   const [cards, setCards] = useState([]);
   const [userEmail, setUserEmail] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
-  const history = useHistory();
-
-  //Register
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const history = useHistory();
+
+  //Register
   function handleNewEmail(evt) {
     setEmail(evt.target.value)
   }
@@ -57,6 +57,26 @@ function App() {
       .catch(() => { handleInfoPopup(false) })
   }
 
+  //Login
+  function handleLogin(evt) {
+    evt.preventDefault();
+    if (!email || !password) {
+      return
+    }
+    auth
+      .signIn(password, email)
+      .then((jwt) => {
+        if (jwt) {
+          setEmail('');
+          setPassword('');
+          handleTokenCheck();
+          history.push('/')
+        }
+      })
+      .catch(err => {console.log(err)});
+  }
+
+  //cards
   const handleCardClick = (card) => {
     setSelectedCard(card)
   }
@@ -187,7 +207,11 @@ function App() {
 
           <Route path="/sign-in">
             <Login
-              onLoggedIn={handleSignIn}
+              handleLogin={handleLogin}
+              handleNewEmail={handleNewEmail}
+              handleNewPassword={handleNewPassword}
+              email={email}
+              password={password}
             />
           </Route>
 
